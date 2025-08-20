@@ -1,327 +1,110 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jungkook - O Golden Maknae do BTS</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Diário</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    /* Corpo com fundo suave e acolhedor */
     body {
-      background: linear-gradient(135deg, #f7b7d3, #d0c0f6);
-      min-height: 100vh;
+      font-family: "Georgia", serif;
+      background: #f9f4f1;
       color: #333;
       display: flex;
       justify-content: center;
-      padding: 40px 20px;
-      overflow-x: hidden;
-    }
-
-    .container {
-      max-width: 1000px;
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(20px);
-      border-radius: 30px;
-      box-shadow: 0 12px 40px rgba(255, 182, 199, 0.6);
-      padding: 40px 50px;
-      display: flex;
-      flex-direction: column;
       align-items: center;
+      min-height: 100vh;
+      margin: 0;
     }
-
-    header {
-      text-align: center;
-      margin-bottom: 50px;
-      position: relative;
-    }
-
-    .header-img {
-      max-width: 230px;
-      border-radius: 50%;
-      border: 5px solid #ff9fc6;
-      box-shadow: 0 0 25px #ff9fc6;
-      display: block;
-      margin: 0 auto 30px;
-      transition: transform 0.3s ease;
-    }
-
-    .header-img:hover {
-      transform: scale(1.1);
-    }
-
-    header h1 {
-      font-weight: 600;
-      font-size: 3.5rem;
-      text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.4);
-      letter-spacing: 2px;
-      color: #ffb0d7;
-    }
-
-    header p {
-      font-size: 1.6rem;
-      font-weight: 300;
-      margin-top: 8px;
-      color: #f4e3f9cc;
-      font-style: italic;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-bottom: 50px;
-      flex-wrap: wrap;
-    }
-
-    nav button {
-      background: linear-gradient(45deg, #ff7ed6, #8811c2);
-      border: none;
-      padding: 15px 35px;
-      color: #fff;
-      font-weight: 600;
-      font-size: 1.3rem;
-      border-radius: 30px;
-      cursor: pointer;
-      box-shadow: 0 5px 20px rgba(255, 111, 216, 0.5);
-      transition: all 0.4s ease;
-    }
-
-    nav button:hover, nav button.active {
-      background: linear-gradient(45deg, #8811c2, #ff7ed6);
-      box-shadow: 0 8px 30px rgba(255, 111, 216, 0.8);
-      transform: translateY(-3px);
-    }
-
-    section {
-      display: none;
-      animation: fadeInUp 0.7s ease-in-out forwards;
-      line-height: 1.7;
-      font-size: 1.3rem;
-      color: #333;
-    }
-
-    section.active {
-      display: block;
-    }
-
-    h2 {
-      color: #ffb6c1;
-      font-size: 2.4rem;
-      margin-bottom: 20px;
-      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
-      border-bottom: 3px solid #ffb6c1;
-      padding-bottom: 6px;
-    }
-
-    ul {
-      list-style: none;
-      padding-left: 0;
-      margin-bottom: 30px;
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      width: 90%;
       max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
     }
-    ul li {
-      margin-bottom: 15px;
-      background: rgba(255, 255, 255, 0.2);
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-weight: 500;
-      box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.2);
-      transition: background 0.3s;
+    h1 {
+      text-align: center;
+      color: #6b3e26;
     }
-    ul li:hover {
-      background: rgba(255, 255, 255, 0.4);
-    }
-
-    strong {
-      color: #ffd6f7;
-    }
-
-    .album {
-      background: rgba(255, 255, 255, 0.2);
-      padding: 20px 30px;
-      border-radius: 18px;
-      margin-bottom: 30px;
-      box-shadow: 0 8px 20px rgba(255, 182, 199, 0.4);
-      transition: transform 0.3s ease;
-    }
-
-    .album:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 30px rgba(255, 111, 216, 0.7);
-    }
-
-    .album h3 {
-      color: #ffd6f7;
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-      text-shadow: 0 0 8px #ff7eb9;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(25px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 15px;
-      margin-top: 50px;
-      padding: 0 20px;
-    }
-
-    .gallery img {
+    textarea {
       width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 200px;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      resize: none;
+      outline: none;
     }
-
-    .gallery img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px rgba(255, 111, 216, 0.7);
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      border: none;
+      background: #6b3e26;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
     }
-
-    @media (max-width: 600px) {
-      .container {
-        padding: 30px 20px;
-      }
-      header h1 {
-        font-size: 2.5rem;
-      }
-      nav button {
-        padding: 10px 20px;
-        font-size: 1rem;
-      }
-      .album h3 {
-        font-size: 1.5rem;
-      }
-      .gallery {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      }
+    button:hover {
+      background: #8c5232;
+    }
+    .entries {
+      margin-top: 20px;
+    }
+    .entry {
+      background: #f4ece9;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .date {
+      font-size: 12px;
+      color: #777;
+      margin-bottom: 5px;
     }
   </style>
 </head>
-
 <body>
   <div class="container">
-    <header>
-      <img class="header-img" src="b53d7dcbd105bd0c8bdce7fc0f8302c8.jpg" alt="Foto Jungkook" />
-      <h1>Jungkook - O Golden Maknae do BTS</h1>
-      <p>Explore a vida, carreira e curiosidades de Jungkook, o ícone do BTS</p>
-    </header>
-
-    <nav>
-      <button class="active" data-target="historia">História</button>
-      <button data-target="informacoes">Informações</button>
-      <button data-target="carreira">Carreira Solo</button>
-      <button data-target="discos">Discos Famosos</button>
-      <button data-target="curiosidades">Curiosidades</button>
-      <button data-target="galeria">Galeria</button>
-    </nav>
-
-    <section id="historia" class="active">
-      <h2>História</h2>
-      <p>Jeon Jungkook nasceu em 1º de setembro de 1997, em Busan, Coreia do Sul. O jovem prodígio começou sua jornada musical aos 13 anos, quando foi descoberto através de um vídeo de cover.</p>
-      <p>Ele entrou para a Big Hit Entertainment e, em 2013, debutou com o BTS, onde logo se tornou o vocalista principal, dançarino e "maknae" do grupo.</p>
-    </section>
-
-    <section id="informacoes">
-      <h2>Informações</h2>
-      <ul>
-        <li><strong>Nome completo:</strong> Jeon Jungkook</li>
-        <li><strong>Data de nascimento:</strong> 1º de setembro de 1997</li>
-        <li><strong>Posição no BTS:</strong> Vocalista principal, dançarino, maknae</li>
-        <li><strong>Altura:</strong> 178 cm</li>
-        <li><strong>Redes sociais:</strong> @uarmyhope (Instagram)</li>
-      </ul>
-    </section>
-
-    <section id="carreira">
-      <h2>Carreira Solo</h2>
-      <p>Jungkook tem se aventurado na carreira solo, lançando a música "Still With You" em 2020 e o álbum "Golden" em 2023, ambos mostrando seu talento único.</p>
-    </section>
-
-    <section id="discos">
-      <h2>Discos Famosos</h2>
-      <div class="album">
-        <h3>Golden</h3>
-        <p>Álbum solo de 2023, explorando novas sonoridades e profundidade emocional.</p>
-      </div>
-      <div class="album">
-        <h3>Still With You</h3>
-        <p>Música de 2020, com uma melodia suave e tocante, presenteando os fãs com uma sensação de proximidade.</p>
-      </div>
-      <div class="album">
-        <h3>Euphoria</h3>
-        <p>Single solo que se tornou um dos hits mais marcantes do BTS, com uma vibe energética e positiva.</p>
-      </div>
-      <div class="album">
-        <h3>My Time</h3>
-        <p>Uma faixa do álbum "Map of the Soul: 7", onde Jungkook mostra seu amadurecimento artístico e lírico.</p>
-      </div>
-      <div class="album">
-        <h3>Begin</h3>
-        <p>Uma música do álbum "Wings", onde Jungkook canta sobre sua jornada pessoal e de superação.</p>
-      </div>
-      <div class="album">
-        <h3>Airplane Pt.2</h3>
-        <p>Música do BTS que se tornou um grande sucesso entre os fãs, com Jungkook em destaque na performance vocal.</p>
-      </div>
-    </section>
-
-    <section id="curiosidades">
-      <h2>Curiosidades</h2>
-      <ul>
-        <li>Jungkook adora desenhar e compartilhar suas criações com os fãs.</li>
-        <li>Ele é fluente em inglês e coreano, e se dedica a aprender novos idiomas.</li>
-        <li>Além de cantar, ele também é talentoso em tocar instrumentos.</li>
-      </ul>
-    </section>
-
-    <section id="galeria">
-      <h2>Galeria de Imagens</h2>
-      <div class="gallery">
-        <img src="191e1941a1318b85edb83f4d21227777.jpg" alt="Imagem 1">
-        <img src="3779d6f7767ab9aa40ec14b89eb8372b.jpg" alt="Imagem 2">
-        <img src="5120cff650a23519d9025b522b6cdf42.jpg" alt="Imagem 3">
-        <img src="fotos-do-jungkook-ukd6nyfjqs480hjf.jpg" alt="">
-        <img src="Jungkook-thumb.webp" alt="">
-        <img src="proof-bts-2.jpg" alt="">
-        <img src="xjeon_jungkook_png_pagespeed_ic_c6wmmvyht8-20553035.jpg" alt="">
-      </div>
-    </section>
+    <h1>Meu Diário ✨</h1>
+    <textarea id="diaryText" placeholder="Escreva aqui seus pensamentos..."></textarea>
+    <button onclick="saveEntry()">Salvar</button>
+    <div class="entries" id="entries"></div>
   </div>
 
   <script>
-    const buttons = document.querySelectorAll('nav button');
-    const sections = document.querySelectorAll('section');
+    function saveEntry() {
+      const text = document.getElementById("diaryText").value;
+      if (text.trim() === "") return;
 
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        buttons.forEach(btn => btn.classList.remove('active'));
-        sections.forEach(section => section.classList.remove('active'));
-        button.classList.add('active');
-        document.getElementById(button.dataset.target).classList.add('active');
+      const date = new Date().toLocaleString();
+      const entry = { text, date };
+
+      let entries = JSON.parse(localStorage.getItem("diaryEntries")) || [];
+      entries.unshift(entry); // adiciona no começo
+      localStorage.setItem("diaryEntries", JSON.stringify(entries));
+
+      document.getElementById("diaryText").value = "";
+      loadEntries();
+    }
+
+    function loadEntries() {
+      const entries = JSON.parse(localStorage.getItem("diaryEntries")) || [];
+      const container = document.getElementById("entries");
+      container.innerHTML = "";
+
+      entries.forEach(entry => {
+        const div = document.createElement("div");
+        div.className = "entry";
+        div.innerHTML = `<div class="date">${entry.date}</div><div>${entry.text}</div>`;
+        container.appendChild(div);
       });
-    });
+    }
+
+    window.onload = loadEntries;
   </script>
 </body>
 </html>
